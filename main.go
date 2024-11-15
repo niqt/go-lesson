@@ -16,7 +16,7 @@ func main() {
 	fmt.Println("6. Producer Consumer with RW mutex")
 	fmt.Println("7. Close channel using the close function")
 	fmt.Println("8. Close channel sending message in a channel")
-	fmt.Println("9. Sevie")
+	fmt.Println("9. Sieve")
 
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter your choice: ")
@@ -39,6 +39,8 @@ func main() {
 	case "8\n":
 		CloseWithChannel()
 	case "9\n":
-		Sevie()
+		Sieve()
+	case "10\n":
+		CPU()
 	}
 }
