@@ -33,7 +33,7 @@ func fanInWithSelect(input1, input2 <-chan string) <-chan string {
 }
 
 func FanInExample() {
-	c := fanIn(Boring("Joe"), Boring("Ann"))
+	c := fanIn(Boring("Bob"), Boring("Alice"))
 	for i := 0; i < 10; i++ {
 		fmt.Println(<-c)
 	}
@@ -41,7 +41,7 @@ func FanInExample() {
 }
 
 func FanInWithSelectExample() {
-	c := fanInWithSelect(Boring("Joe"), Boring("Ann"))
+	c := fanInWithSelect(Boring("Bob"), Boring("Alice"))
 	for i := 0; i < 10; i++ {
 		fmt.Println(<-c)
 	}
