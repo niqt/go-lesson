@@ -43,6 +43,9 @@ func ServerHttp() {
 
 func handleConnection(conn net.Conn) {
 	defer func(conn net.Conn) {
+		if conn == nil {
+			return
+		}
 		err := conn.Close()
 		if err != nil {
 			fmt.Printf("Failed to close connection: %v", err)
@@ -64,12 +67,14 @@ func handleConnection(conn net.Conn) {
 func requestHandler(conn net.Conn, request *http.Request) {
 	methodToHandlerMap := endpoints.endpointsMap[request.URL.Path]
 	if methodToHandlerMap == nil {
-		writeResponse(conn, NotFound, "")
+		writeResponse(conn, NotFound, "Not found")
+		return
 	}
 
 	handler := methodToHandlerMap[HttpMethod(request.Method)]
 	if handler == nil {
-		writeResponse(conn, MethodNotAllowed, "")
+		writeResponse(conn, MethodNotAllowed, "MethodNotAllowed")
+		return
 	}
 
 	statusCode, body := handler(request)
