@@ -24,6 +24,7 @@ func main() {
 		fmt.Println("12. Panic example without recover")
 		fmt.Println("13. Panic example with recover")
 		fmt.Println("14. Hang hover (the application will be blocked)")
+		fmt.Println("15. Interface example")
 		fmt.Println("q. Exit")
 
 		reader := bufio.NewReader(os.Stdin)
@@ -61,6 +62,8 @@ func main() {
 			PanicExampleWithRecover()
 		case "14\n":
 			ChanNil()
+		case "15\n":
+			InterfaceExample()
 		}
 	}
 }
