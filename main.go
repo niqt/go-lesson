@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/niqt/go-lesson/webserver"
 	"os"
 )
 
@@ -17,6 +18,8 @@ func main() {
 	fmt.Println("7. Close channel using the close function")
 	fmt.Println("8. Close channel sending message in a channel")
 	fmt.Println("9. Sieve")
+	fmt.Println("10. CPU intensive task")
+	fmt.Println("11. Server http")
 
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter your choice: ")
@@ -42,5 +45,7 @@ func main() {
 		Sieve()
 	case "10\n":
 		CPU()
+	case "11\n":
+		webserver.ServerHttp()
 	}
 }
