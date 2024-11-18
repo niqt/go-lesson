@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func CloseCallingClose() {
+func TerminateCallingClose() {
 	var wg sync.WaitGroup
 	wg.Add(1)
 
@@ -32,10 +32,10 @@ func CloseCallingClose() {
 	// wait all goroutine to stop
 	wg.Wait()
 	// print the last message
-	fmt.Println("This is the end of main func!")
+	fmt.Println("This is the end of TerminateCallingClose func!")
 }
 
-func CloseWithChannel() {
+func TerminateWithChannel() {
 	fmt.Println("ExampleWithChannel")
 
 	quitChan := make(chan bool)
@@ -61,5 +61,5 @@ func CloseWithChannel() {
 
 	// test if the gorountine stopped or not
 	time.Sleep(time.Second * 10)
-	fmt.Println("End of the ExampleWithChannel")
+	fmt.Println("End of the TerminateWithChannel")
 }

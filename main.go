@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"github.com/niqt/go-lesson/webserver"
 	"os"
+	"runtime"
 )
 
 func main() {
+	fmt.Println("N core ", runtime.NumCPU())
 	for {
 		fmt.Println("*** Menu Options ***")
 		fmt.Println("1. FanIn")
@@ -25,6 +27,7 @@ func main() {
 		fmt.Println("13. Panic example with recover")
 		fmt.Println("14. Hang hover (the application will be blocked)")
 		fmt.Println("15. Interface example")
+		fmt.Println("16. Context example")
 		fmt.Println("q. Exit")
 
 		reader := bufio.NewReader(os.Stdin)
@@ -47,9 +50,9 @@ func main() {
 		case "6\n":
 			ScoreBoardRW()
 		case "7\n":
-			CloseCallingClose()
+			TerminateCallingClose()
 		case "8\n":
-			CloseWithChannel()
+			TerminateWithChannel()
 		case "9\n":
 			Sieve()
 		case "10\n":
@@ -64,6 +67,8 @@ func main() {
 			ChanNil()
 		case "15\n":
 			InterfaceExample()
+		case "16\n":
+			ContextExample()
 		}
 	}
 }
