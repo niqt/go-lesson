@@ -18,6 +18,7 @@ func fanIn(input1, input2 <-chan string) <-chan string {
 }
 
 func fanInWithSelect(input1, input2 <-chan string) <-chan string {
+	//var c chan string
 	c := make(chan string)
 	go func() {
 		for {
@@ -25,6 +26,7 @@ func fanInWithSelect(input1, input2 <-chan string) <-chan string {
 			case s := <-input1:
 				c <- s
 			case s := <-input2:
+
 				c <- s
 			}
 		}
