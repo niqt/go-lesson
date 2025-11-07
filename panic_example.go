@@ -16,6 +16,7 @@ func PanicExampleWithRecover() {
 	defer fmt.Println("Deferred statement 2")
 	defer fmt.Println("Deferred statement 3")
 	defer func() {
+
 		if r := recover(); r != nil {
 			// handle the panic
 			fmt.Println("Recovered from panic:", r)

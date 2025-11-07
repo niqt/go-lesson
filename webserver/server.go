@@ -43,9 +43,6 @@ func ServerHttp() {
 
 func handleConnection(conn net.Conn) {
 	defer func(conn net.Conn) {
-		if conn == nil {
-			return
-		}
 		err := conn.Close()
 		if err != nil {
 			fmt.Printf("Failed to close connection: %v", err)

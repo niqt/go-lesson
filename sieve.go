@@ -11,7 +11,7 @@ func Generate(ch chan<- int) {
 // removing those divisible by 'prime'.
 func Filter(in <-chan int, out chan<- int, prime int) {
 	for {
-		i := <-in // Receive value from 'in'.
+		i := <-in // Receive value from 'in' / Debugging output.
 		if i%prime != 0 {
 			out <- i // Send 'i' to 'out'.
 		}
