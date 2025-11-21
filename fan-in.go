@@ -23,11 +23,10 @@ func fanInWithSelect(input1, input2 <-chan string) <-chan string {
 	go func() {
 		for {
 			select {
-			case s := <-input1:
-				c <- s
-			case s := <-input2:
-
-				c <- s
+			case s1 := <-input1:
+				c <- s1
+			case s2 := <-input2:
+				c <- s2
 			}
 		}
 	}()
